@@ -1,0 +1,8 @@
+.btnBoard {
+   height: 20px;
+   width: 20px;
+}
+
+#GameBoard{
+    display: flexbox;
+}
