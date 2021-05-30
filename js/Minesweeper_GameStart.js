@@ -17,6 +17,16 @@ function buildGame(){
     createBoard(height, width, bombs);
 
     renderBoard();
+
+    let widthField = document.getElementById("boardWidth");
+    let heightField = document.getElementById("boardHeight");
+    let bombsField = document.getElementById("boardBombs");
+    let playBtn = document.getElementById("playBtn");
+
+    widthField.disabled = true;
+    heightField.disabled = true;
+    bombsField.disabled = true;
+    playBtn.disabled = true;
 }
 
 function createBoard(height, width, bombs){
@@ -283,6 +293,7 @@ function endGameFail(){
     alert("Bomb has been found. Game Over");
     revealBombs();
     disabledGame();
+    resetGame();
 }
 
 function revealBombs(){
@@ -318,6 +329,7 @@ function checkGameState(){
 function endGameSuccess(){
     alert("Revealed Map without hitting a bomb! Winner!");
     disabledGame();
+    resetGame();
 }
 
 function disabledGame(){
@@ -326,4 +338,16 @@ function disabledGame(){
             cell.el.disabled = true;
         })
     });
+}
+
+function resetGame(){
+    let widthField = document.getElementById("boardWidth");
+    let heightField = document.getElementById("boardHeight");
+    let bombsField = document.getElementById("boardBombs");
+    let playBtn = document.getElementById("playBtn");
+
+    widthField.disabled = false;
+    heightField.disabled = false;
+    bombsField.disabled = false;
+    playBtn.disabled = false;
 }
